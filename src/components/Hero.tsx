@@ -98,14 +98,17 @@ export default function Hero() {
 
         <div ref={ctaRef} className="mt-10 md:mt-16">
           <Magnetic>
-            <button className="group relative px-8 py-4 md:px-10 md:py-5 rounded-full bg-white/60 backdrop-blur-md border border-white text-stone-800 font-bold text-sm md:text-lg overflow-hidden flex items-center gap-3 shadow-[0_10px_40px_rgba(0,0,0,0.05)] md:hover:border-orange-300 active:scale-95 active:bg-orange-500 active:text-white transition-all duration-300 cursor-pointer md:cursor-none">
-              <span className="relative z-10 transition-transform duration-300 md:group-hover:-translate-y-12">
+            <button 
+              onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
+              className="group relative px-8 py-4 md:px-10 md:py-5 rounded-full bg-white/60 backdrop-blur-md border border-white text-stone-800 font-bold text-sm md:text-lg overflow-hidden flex items-center gap-3 shadow-[0_10px_40px_rgba(0,0,0,0.05)] hover:border-orange-300 active:scale-95 transition-all duration-300 cursor-pointer md:cursor-none"
+            >
+              <span className="relative z-10 transition-transform duration-300 group-hover:-translate-y-12 group-active:-translate-y-12">
                 {t.hero.cta}
               </span>
-              <span className="absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-12 z-10 transition-transform duration-300 md:group-hover:-translate-y-1/2 text-white whitespace-nowrap hidden md:block">
+              <span className="absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-12 z-10 transition-transform duration-300 group-hover:-translate-y-1/2 group-active:-translate-y-1/2 text-white whitespace-nowrap">
                 {t.hero.scrollDown}
               </span>
-              <div className="absolute inset-0 bg-orange-400 rounded-full scale-0 md:group-hover:scale-150 transition-transform duration-500 ease-out origin-center hidden md:block" />
+              <div className="absolute inset-0 bg-orange-400 rounded-full scale-0 group-hover:scale-150 group-active:scale-150 transition-transform duration-500 ease-out origin-center" />
             </button>
           </Magnetic>
         </div>

@@ -118,7 +118,7 @@ export default function Skills() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[50vh] py-20 md:py-0 md:h-[80vh] w-full flex flex-col md:flex-row items-center justify-center bg-transparent overflow-hidden"
+      className="relative min-h-[50vh] py-20 md:py-0 md:h-[80vh] w-full flex flex-col items-center justify-center bg-transparent overflow-hidden"
     >
       <div 
         ref={bgTextRef} 
@@ -129,7 +129,7 @@ export default function Skills() {
         </h2>
       </div>
 
-      <div className="z-10 text-center pointer-events-none mb-10 md:mb-0">
+      <div className="z-10 text-center pointer-events-none mb-10 md:mb-0 md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
         <p className="text-xs md:text-sm font-bold tracking-[0.3em] uppercase text-orange-400 mb-2 md:mb-4">
           {t.skills.subtitle}
         </p>
