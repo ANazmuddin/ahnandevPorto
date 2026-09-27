@@ -52,37 +52,62 @@ export default function Skills() {
         isMobile: "(max-width: 767px)"
       }, (context) => {
         const { isDesktop } = context.conditions as any;
-        const multiplier = isDesktop ? 1 : 0.4;
 
         pillsRef.current.forEach((pill, i) => {
           if (!pill) return;
           const speed = skills[i].speed;
 
-          gsap.fromTo(
-            pill,
-            { y: 150 * speed * multiplier, opacity: 0 },
-            {
-              y: -150 * speed * multiplier,
-              opacity: 1,
-              ease: "none",
-              scrollTrigger: {
-                trigger: container,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 1,
-              },
-            }
-          );
+          if (isDesktop) {
+            gsap.fromTo(
+              pill,
+              { y: 150 * speed, opacity: 0 },
+              {
+                y: -150 * speed,
+                opacity: 1,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: container,
+                  start: "top bottom",
+                  end: "bottom top",
+                  scrub: 1,
+                },
+              }
+            );
 
-          gsap.to(pill, {
-            y: `+=${15 * speed}`,
-            x: `+=${10 * speed}`,
-            duration: 2 + speed,
-            yoyo: true,
-            repeat: -1,
-            ease: "sine.inOut",
-            delay: i * 0.2,
-          });
+            gsap.to(pill, {
+              y: `+=${15 * speed}`,
+              x: `+=${10 * speed}`,
+              duration: 2 + speed,
+              yoyo: true,
+              repeat: -1,
+              ease: "sine.inOut",
+              delay: i * 0.2,
+            });
+          } else {
+            // Mobile subtle entry and float
+            gsap.fromTo(
+              pill,
+              { y: 20, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                ease: "power2.out",
+                scrollTrigger: {
+                  trigger: container,
+                  start: "top 80%",
+                }
+              }
+            );
+            gsap.to(pill, {
+              y: -4,
+              duration: 1.5 + speed,
+              yoyo: true,
+              repeat: -1,
+              ease: "sine.inOut",
+              delay: i * 0.1,
+            });
+          }
         });
       });
     });
@@ -93,18 +118,18 @@ export default function Skills() {
   return (
     <section
       ref={containerRef}
-      className="relative h-[60vh] md:h-[80vh] w-full flex items-center justify-center bg-transparent overflow-hidden"
+      className="relative min-h-[50vh] py-20 md:py-0 md:h-[80vh] w-full flex flex-col md:flex-row items-center justify-center bg-transparent overflow-hidden"
     >
       <div 
         ref={bgTextRef} 
         className="absolute inset-0 flex items-center justify-center -z-10 pointer-events-none opacity-[0.03]"
       >
-        <h2 className="text-[20vw] font-black text-stone-900 select-none">
+        <h2 className="text-[25vw] md:text-[20vw] font-black text-stone-900 select-none">
           {t.skills.bgText}
         </h2>
       </div>
 
-      <div className="z-10 text-center pointer-events-none">
+      <div className="z-10 text-center pointer-events-none mb-10 md:mb-0">
         <p className="text-xs md:text-sm font-bold tracking-[0.3em] uppercase text-orange-400 mb-2 md:mb-4">
           {t.skills.subtitle}
         </p>
@@ -113,21 +138,23 @@ export default function Skills() {
         </h2>
       </div>
 
-      {skills.map((skill, i) => (
-        <div
-          key={i}
-          ref={(el) => {
-            pillsRef.current[i] = el;
-          }}
-          className={`absolute px-4 py-2 md:px-6 md:py-3 rounded-full font-bold text-xs md:text-sm shadow-[0_4px_20px_rgba(0,0,0,0.03)] border pointer-events-auto hover:scale-110 transition-transform duration-300 cursor-none ${skill.color}`}
-          style={{
-            top: skill.top,
-            left: skill.left,
-          }}
-        >
-          {skill.name}
-        </div>
-      ))}
+      <div className="flex flex-wrap justify-center content-center gap-3 w-full max-w-sm mx-auto md:max-w-none md:block z-20 px-4 md:px-0">
+        {skills.map((skill, i) => (
+          <div
+            key={i}
+            ref={(el) => {
+              pillsRef.current[i] = el;
+            }}
+            className={`relative md:absolute md:top-[var(--md-top)] md:left-[var(--md-left)] px-4 py-2 md:px-6 md:py-3 rounded-full font-bold text-xs md:text-sm shadow-sm md:shadow-[0_4px_20px_rgba(0,0,0,0.03)] border pointer-events-auto hover:scale-105 md:hover:scale-110 transition-transform duration-300 cursor-pointer md:cursor-none ${skill.color}`}
+            style={{
+              "--md-top": skill.top,
+              "--md-left": skill.left,
+            } as React.CSSProperties}
+          >
+            {skill.name}
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

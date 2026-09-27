@@ -204,7 +204,6 @@ export default function TerminalContact() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 className="flex-1 min-w-[100px] bg-transparent border-none outline-none text-white caret-white font-bold"
-                autoFocus
                 autoComplete="off"
                 spellCheck="false"
               />
