@@ -60,7 +60,7 @@ export default function AboutBento() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full py-16 md:py-24 px-4 sm:px-6 md:px-8 max-w-6xl mx-auto flex flex-col items-center">
+    <section id="about" ref={containerRef} className="relative w-full py-16 md:py-24 px-4 sm:px-6 md:px-8 max-w-6xl mx-auto flex flex-col items-center">
       
       {/* Section Header */}
       <div className="z-10 text-center mb-8 md:mb-12">

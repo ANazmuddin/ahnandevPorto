@@ -5,6 +5,7 @@ import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
 import { LanguageProvider } from "@/context/LanguageContext";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import CommandPalette from "@/components/CommandPalette";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
         <LanguageProvider>
           <CustomCursor />
           <LanguageSwitcher />
+          <CommandPalette />
           <SmoothScroll>{children}</SmoothScroll>
         </LanguageProvider>
       </body>

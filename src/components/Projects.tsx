@@ -96,7 +96,7 @@ export default function Projects() {
   }, [projects.length]);
 
   return (
-    <section ref={sectionRef} className="relative h-screen w-full bg-transparent overflow-hidden">
+    <section id="projects" ref={sectionRef} className="relative h-screen w-full bg-transparent overflow-hidden">
       
       <div 
         ref={bgTextRef} 

@@ -157,7 +157,7 @@ export default function TerminalContact() {
   };
 
   return (
-    <section ref={containerRef} className="relative min-h-[90vh] md:min-h-screen w-full flex items-center justify-center bg-transparent py-16 px-4 md:py-20 md:px-6 overflow-hidden">
+    <section id="contact" ref={containerRef} className="relative min-h-[90vh] md:min-h-screen w-full flex items-center justify-center bg-transparent py-16 px-4 md:py-20 md:px-6 overflow-hidden">
       
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full -z-10 pointer-events-none opacity-[0.03] flex justify-center">
         <h2 className="text-[25vw] font-black text-stone-900 select-none tracking-tighter">

@@ -86,6 +86,7 @@ export default function Hero() {
 
   return (
     <section
+      id="hero"
       ref={containerRef}
       className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-transparent"
     >

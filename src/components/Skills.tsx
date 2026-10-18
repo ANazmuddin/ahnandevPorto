@@ -117,6 +117,7 @@ export default function Skills() {
 
   return (
     <section
+      id="skills"
       ref={containerRef}
       className="relative min-h-[50vh] py-20 md:py-0 md:h-[80vh] w-full flex flex-col items-center justify-center bg-transparent overflow-hidden"
     >
