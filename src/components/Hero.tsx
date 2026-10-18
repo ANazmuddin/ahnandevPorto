@@ -18,46 +18,70 @@ export default function Hero() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     
-    gsap.to(contentRef.current, {
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-      },
-      y: 150,
-      opacity: 0, 
-    });
+    let playHero: (() => void) | null = null;
+    let fallbackTimer: NodeJS.Timeout | null = null;
 
-    gsap.to(marqueeRef.current, {
-      xPercent: -50,
-      repeat: -1,
-      duration: 30,
-      ease: "linear",
-    });
+    const ctx = gsap.context(() => {
+      gsap.to(contentRef.current, {
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+        y: 150,
+        opacity: 0, 
+      });
 
-    const tl = gsap.timeline();
-    
-    const lines = textRef.current ? gsap.utils.toArray(textRef.current.querySelectorAll(".line")) : [];
-    
-    tl.fromTo(
-      lines,
-      { y: 100, opacity: 0, rotateZ: 3 },
-      { y: 0, opacity: 1, rotateZ: 0, duration: 1.2, ease: "power4.out", stagger: 0.15 }
-    )
-    .fromTo(
-      subRef.current,
-      { y: 20, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, ease: "power3.out" },
-      "-=0.8"
-    )
-    .fromTo(
-      ctaRef.current,
-      { scale: 0, opacity: 0 },
-      { scale: 1, opacity: 1, duration: 0.8, ease: "back.out(1.7)" },
-      "-=0.6"
-    );
+      gsap.to(marqueeRef.current, {
+        xPercent: -50,
+        repeat: -1,
+        duration: 30,
+        ease: "linear",
+      });
 
+      const tl = gsap.timeline({ paused: true });
+      
+      const lines = textRef.current ? gsap.utils.toArray(textRef.current.querySelectorAll(".line")) : [];
+      
+      tl.fromTo(
+        lines,
+        { y: 100, opacity: 0, rotateZ: 3 },
+        { y: 0, opacity: 1, rotateZ: 0, duration: 1.2, ease: "power4.out", stagger: 0.15 }
+      )
+      .fromTo(
+        subRef.current,
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, ease: "power3.out" },
+        "-=0.8"
+      )
+      .fromTo(
+        ctaRef.current,
+        { scale: 0, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.8, ease: "back.out(1.7)" },
+        "-=0.6"
+      );
+
+      playHero = () => {
+        tl.play();
+      };
+
+      window.addEventListener("preloaderComplete", playHero);
+
+      fallbackTimer = setTimeout(() => {
+        tl.play();
+      }, 2200);
+    }, containerRef);
+
+    return () => {
+      if (playHero) {
+        window.removeEventListener("preloaderComplete", playHero);
+      }
+      if (fallbackTimer) {
+        clearTimeout(fallbackTimer);
+      }
+      ctx.revert();
+    };
   }, []);
 
   return (

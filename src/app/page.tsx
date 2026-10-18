@@ -1,11 +1,15 @@
 import Hero from "@/components/Hero";
+import AboutBento from "@/components/AboutBento";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import TerminalContact from "@/components/TerminalContact";
+import TerminalPreloader from "@/components/TerminalPreloader";
 
 export default function Home() {
   return (
-    <main className="relative w-full overflow-hidden text-stone-800">
+    <>
+      <TerminalPreloader />
+      <main className="relative w-full overflow-hidden text-stone-800">
       
       {/* GLOBAL BACKGROUND - Solid Putih Tulang dengan Dotted Grid Halus */}
       <div className="fixed inset-0 -z-50 bg-[#FBF9F6]">
@@ -16,6 +20,9 @@ export default function Home() {
       {/* Scene 1: The Hook */}
       <Hero />
 
+      {/* Scene 1.5: The Identity (Bento Grid) */}
+      <AboutBento />
+
       {/* Scene 2: The Arsenal (Floating Tech Stack) */}
       <Skills />
 
@@ -25,5 +32,6 @@ export default function Home() {
       {/* Scene 4: The Beacon (Interactive Terminal Contact) */}
       <TerminalContact />
     </main>
+    </>
   );
 }

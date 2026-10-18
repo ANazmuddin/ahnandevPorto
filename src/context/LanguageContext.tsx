@@ -22,6 +22,16 @@ export const translations = {
       subtitle: "Tech Stack",
       title: "THE TOOLS"
     },
+    bento: {
+      title: "ABOUT ME",
+      bio: "Crafting digital experiences with a clean, cinematic approach. I bridge the gap between design and robust engineering.",
+      locationTitle: "Based in",
+      location: "Indonesia",
+      learningTitle: "Currently Exploring",
+      learning: "AI Agents & Advanced Frontend",
+      statusTitle: "Status",
+      status: "Open to Work",
+    },
     projects: {
       bgText: "WORKS WORKS WORKS",
       title: "THE ARCHIVES",
@@ -92,6 +102,16 @@ export const translations = {
       bgText: "AHNAN",
       subtitle: "Tech Stack",
       title: "THE TOOLS"
+    },
+    bento: {
+      title: "TENTANG SAYA",
+      bio: "Menciptakan pengalaman digital yang bersih dengan pendekatan sinematik. Saya menjembatani jarak antara desain UI/UX dan rekayasa kode yang kuat.",
+      locationTitle: "Berlokasi di",
+      location: "Indonesia",
+      learningTitle: "Sedang Mempelajari",
+      learning: "AI Agents & Advanced Frontend",
+      statusTitle: "Status",
+      status: "Terbuka untuk Bekerja",
     },
     projects: {
       bgText: "WORKS WORKS WORKS",
