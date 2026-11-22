@@ -103,6 +103,17 @@ export const translations = {
       msgEncrypting: "Encrypting and sending message...",
       msgSuccess: "✅ Message sent successfully! I will reply to your email shortly.",
       msgOpening: "Opening link:"
+    },
+    footer: {
+      role: "Fullstack Developer & Creative Coder.",
+      explore: "EXPLORE",
+      getInTouch: "GET IN TOUCH",
+      seeYouAround: "See you around.",
+      backToTop: "Back to top",
+      traffic: "Finally, some traffic on my website.",
+      pause: "Pause crowd animation",
+      resume: "Resume crowd animation",
+      copyright: "© 2026 Ahmad Nazmuddin. All rights reserved."
     }
   },
   id: {
@@ -203,6 +214,17 @@ export const translations = {
       msgEncrypting: "Mengenkripsi dan mengirim pesan...",
       msgSuccess: "✅ Pesan berhasil terkirim! Saya akan segera membalasnya ke email Anda.",
       msgOpening: "Membuka tautan:"
+    },
+    footer: {
+      role: "Fullstack Developer & Creative Coder.",
+      explore: "EXPLORE",
+      getInTouch: "GET IN TOUCH",
+      seeYouAround: "See you around.",
+      backToTop: "Kembali ke atas",
+      traffic: "Finally, some traffic on my website.",
+      pause: "Jeda animasi kerumunan",
+      resume: "Lanjutkan animasi kerumunan",
+      copyright: "© 2026 Ahmad Nazmuddin. Seluruh hak cipta dilindungi."
     }
   }
 };

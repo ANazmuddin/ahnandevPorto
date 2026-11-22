@@ -4,6 +4,7 @@ import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import TerminalContact from "@/components/TerminalContact";
 import TerminalPreloader from "@/components/TerminalPreloader";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -31,6 +32,9 @@ export default function Home() {
 
       {/* Scene 4: The Beacon (Interactive Terminal Contact) */}
       <TerminalContact />
+
+      {/* Scene 5: Living Crowd Scene Footer */}
+      <Footer />
     </main>
     </>
   );

@@ -35,8 +35,12 @@ export default function SmoothScroll({
 
     gsap.ticker.lagSmoothing(0);
 
+    // Expose lenis globally for interactive navigation
+    (window as unknown as { __lenis?: Lenis }).__lenis = lenis;
+
     return () => {
       // Cleanup on unmount
+      delete (window as unknown as { __lenis?: Lenis }).__lenis;
       lenis.destroy();
       gsap.ticker.remove((time) => lenis.raf(time * 1000));
     };
